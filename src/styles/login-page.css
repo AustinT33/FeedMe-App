@@ -1,0 +1,128 @@
+.welcome {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 60px;
+}
+
+input {
+    padding-left: 1%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3%;
+    height: 75px;
+    width: 50%;
+    font-size: 35px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+.login-options {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+.login-section {
+    text-align: center;
+    margin: 0 auto;
+    width: 20%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+.login {
+    font-size: 38px;
+    text-decoration: none;
+    color: black;
+}
+
+.create {
+    font-size: 25px;
+    width: 20%;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.forgot {
+    font-size: 25px;
+    width: 20%;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-top: 1%;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .welcome {
+        margin-top: 40%;
+        font-size: 48px;
+    }
+
+    input {
+        width: 75%;
+        font-size: 30px;
+        height: 40px;
+        margin-bottom: 5%;
+    }
+
+    .login {
+        width: 20%;
+        font-size: 18px;
+    }
+
+    .create {
+        width: 55%;
+        font-size: 18px;
+    }
+
+    .forgot {
+        width: 75%;
+        margin-top: 10%;
+    }
+
+}
+
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+
+    .welcome {
+        margin-top: 20%;
+        font-size: 75px;
+    }
+
+    input {
+        width: 75%;
+        font-size: 40px;
+        height: 60px;
+        margin-bottom: 5%;
+    }
+
+    .login {
+        width: 25%;
+        font-size: 26px;
+    }
+
+    .create {
+        width: 50%;
+        font-size: 26px;
+    }
+
+    .forgot {
+        width: 75%;
+        margin-top: 10%;
+        font-size: 24px;
+    }
+
+}
+
+@media only screen and (max-width: 1400px) and (min-width: 900px) {
+
+    .welcome {
+        margin-top: 15%;
+        font-size: 75px;
+    }
+
+}

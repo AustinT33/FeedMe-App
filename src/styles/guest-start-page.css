@@ -1,0 +1,144 @@
+.start-page-guest {
+    margin-top: -2%;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+    border: 1px solid black;
+    width: 60%;
+    margin: 0 auto;
+    height: 200px;
+    padding-top: 100px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.options {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+select {
+    width: 10%;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+.start-button {
+    width: 15%;
+    height: 31px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #262626;
+    font-size: 18px; 
+}
+.link {
+    border: none;
+    text-align: center;
+    margin-top: 5%;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .welcome {
+        margin-top: 15%;
+        font-size: 24px;
+    }
+
+    .options {
+        margin-top: 10%;
+    }
+
+    .intro {
+        width: 80%;
+        height: 250px;
+    }
+
+    select {
+        width: 20%;
+    }
+
+    .start-button {
+        width: 60%;
+    }
+
+    .link {
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+
+    .welcome {
+        font-size: 40px;
+    }
+
+    .intro {
+        width: 80%;
+        height: 300px;
+    }
+
+    select {
+        width: 30%;
+        font-size: 26px;
+        height: 50px;
+    }
+
+    .start-button {
+        width: 50%;
+        font-size: 26px;
+        height: 50px;
+    }
+
+    .login-link {
+        font-size: 24px;
+    }
+
+    .link {
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 900px) {
+
+    .welcome {
+        font-size: 50px;
+    }
+
+    .intro {
+        width: 80%;
+        height: 550px;
+    }
+
+    select {
+        width: 30%;
+        font-size: 34px;
+        height: 70px;
+    }
+
+    .start-button {
+        width: 50%;
+        font-size: 34px;
+        height: 70px;
+    }
+
+    .login-link {
+        font-size: 30px;
+    }
+
+    .link {
+        margin-top: 20%;
+    }
+}
