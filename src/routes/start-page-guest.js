@@ -18,7 +18,7 @@ class StartPageGuest extends React.Component {
         <div className="start-page-guest">
             <h1 className="welcome">Can't Decide?<br/>Let Me Help With That!</h1>
             <div className="intro">
-                <h3>{this.state.result}</h3>
+                <div>{this.state.result}</div>
             </div>
             <div className="options">
                 <select>

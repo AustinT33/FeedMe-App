@@ -1,5 +1,5 @@
 import React from 'react'
-import {addFavorite} from './routes/logged-in-start-page'
+//import {addFavorite} from './routes/logged-in-start-page'
 let places = [
     {
         id: 1,

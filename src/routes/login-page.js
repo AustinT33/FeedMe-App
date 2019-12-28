@@ -11,7 +11,7 @@ function LoginPage() {
             <input type="password" placeholder="Password"/>
         </form>
             <Link to="/feedme" className="login">Login</Link>
-            <Link to="/create-account" className="create">Don't have an account?</Link>       
+            {/* <Link to="/create-account" className="create">Don't have an account?</Link>        */}
             {/* <Link to="/forgot-info" className="forgot">Forgot Login?</Link> */}
     </div>
     )
