@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/guest-start-page.css';
-import Randomize from '../randomize'
+import GuestRandomize from '../guest-randomize'
 
 class StartPageGuest extends React.Component {
     state = {
@@ -10,7 +10,7 @@ class StartPageGuest extends React.Component {
     handleRandomize = (e) => {
       e.preventDefault();
       this.setState({
-        result: <Randomize />
+        result: <GuestRandomize />
       })
     }
     render() {
@@ -18,7 +18,7 @@ class StartPageGuest extends React.Component {
         <div className="start-page-guest">
             <h1 className="welcome">Can't Decide?<br/>Let Me Help With That!</h1>
             <div className="intro">
-                <div>{this.state.result}</div>
+                <h3>{this.state.result}</h3>
             </div>
             <div className="options">
                 <select>
