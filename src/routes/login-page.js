@@ -10,13 +10,9 @@ function LoginPage() {
             <input type="text" placeholder="User Name"/>
             <input type="password" placeholder="Password"/>
         </form>
-        <div className="login-section">
             <Link to="/feedme" className="login">Login</Link>
-        </div>
-        <div className="login-options">
-            <Link to="/create-account" className="create">Don't have an account?</Link>
-            <Link to="/forgot-info" className="forgot">Forgot Login?</Link>
-        </div>
+            <Link to="/create-account" className="create">Don't have an account?</Link>       
+            {/* <Link to="/forgot-info" className="forgot">Forgot Login?</Link> */}
     </div>
     )
 }
