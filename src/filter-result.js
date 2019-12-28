@@ -1,6 +1,10 @@
-import Randomize from './randomize'
+//import Randomize from './randomize'
 import places from './store'
 
-function FilteredResult() {
-    let filteredResult = 
-}
+let FilteredResult = places.filter(function(place) {
+    const filtered = place.price === '$';
+    console.log(filtered)
+    return filtered
+})
+
+export default FilteredResult

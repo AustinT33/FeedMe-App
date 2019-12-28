@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/logged-in.css';
 import Randomize from '../randomize'
+import FilteredResult from '../filter-result';
 
 class LoggedInStartPage extends React.Component {
     state = {
         result: '',
+        filtered: '',
         addFavorite: results => {
             this.setState({
                 result: [...this.state.result, results]
@@ -17,6 +19,13 @@ class LoggedInStartPage extends React.Component {
             })
         }
       };
+
+    handleFilter = (e) => {
+        e.preventDefault();
+        this.setState({
+            filtered: <FilteredResult/>
+        })
+    }
 
     handleRandomize = (e) => {
       e.preventDefault();
@@ -51,7 +60,8 @@ class LoggedInStartPage extends React.Component {
                 <button onClick={this.handleRandomize} className="start-button" type="button">Find Me A Restaurant!</button>
             </div>
                 <div className="extra-option">
-                    <button className="fave-randomize" type="button">Randomize By Favorites!</button>
+                    <button onClick={this.handleFilter} className="fave-randomize" type="button">Randomize By Favorites!</button>
+                    <h4>{this.state.filter}</h4>
                 </div>
         </div>
         )
