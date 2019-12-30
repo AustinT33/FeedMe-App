@@ -1,10 +1,13 @@
-//import Randomize from './randomize'
+import React from 'react'
 import places from './store'
 
-//function Filter(places) {
-    const Filtered = places.filter(place => place.price ==='$')
-    console.log(Filtered)
-        //return filtered
-   // }
+function Filtered() {
+    const filteredResult = places.filter(place => place.price ==='$')
+    console.log(filteredResult)
+        return (
+            <div>choices={filteredResult}</div>
+
+        )
+    }
 
 export default Filtered

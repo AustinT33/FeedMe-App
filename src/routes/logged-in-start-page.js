@@ -23,14 +23,14 @@ class LoggedInStartPage extends React.Component {
     handleFilter = (e) => {
         e.preventDefault();
         this.setState({
-            filtered: Filtered
+            filtered: <Filtered />
         })
     }
 
     handleRandomize = (e) => {
       e.preventDefault();
       this.setState({
-        result: <Randomize/>
+        result: <Randomize />
       })
     }
     render() {
@@ -48,6 +48,7 @@ class LoggedInStartPage extends React.Component {
             <h1 className="welcome">Can't Decide? Let Me Help With That!</h1>
             <div className="intro">
                 <h3>{this.state.result}</h3>
+                <h4>{this.state.filtered}</h4>
             </div>
             <div className="options">
                 <select>
@@ -57,11 +58,11 @@ class LoggedInStartPage extends React.Component {
                     <option value="$$$">$$$</option>
                     <option value="$$$$">$$$$</option>
                 </select>
-                <button onClick={this.handleResult} className="start-button" type="button">Find Me A Restaurant!</button>
+                <button onClick={this.handleRandomize} className="start-button" type="button">Find Me A Restaurant!</button>
             </div>
                 <div className="extra-option">
                     <button onClick={this.handleFilter} className="fave-randomize" type="button">Randomize By Favorites!</button>
-                    {this.state.filtered[0]}
+                    
                 </div>
         </div>
         )

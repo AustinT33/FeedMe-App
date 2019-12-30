@@ -3,8 +3,8 @@ import React from 'react'
 import places from './store'
 
 function Randomize() {
-      const random = places[Math.floor(Math.random() * places.length)]
-      const result = random.name
+  const random = places[Math.floor(Math.random() * places.length)]
+  const result = random.name
       return (
         <>
           <div className="result">You should eat at {result}!</div>
