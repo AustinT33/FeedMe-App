@@ -1,10 +1,9 @@
 import React from 'react'
 import '../styles/favorites.css'
 import { Link } from 'react-router-dom'
-//import loggedInStartPage from './logged-in-start-page'
+import Faves from '../fave-mapping'
 
-class Favorites extends React.Component {
-    render() {
+function Favorites() {
         return(
             <div className="favorites-section">
                 <nav className="nav-bar" role="navigation">
@@ -19,26 +18,12 @@ class Favorites extends React.Component {
                 <h2 className="fave-header">My Favorites</h2>
                 <div className="fave-list">
                     <ul>
-                        {this.props.results.map((item, i) => (
-                            <li>
-                                {this.props.results} -{" "}
-                                <a
-                                    href="/delete"
-                                    onClick={e => {
-                                        e.preventDefault()
-                                        this.props.removeFavorite(i)
-                                    }}
-                                > 
-                                    X
-                                </a>
-                            </li>
-                        ))}
+                        <Faves/>
                     </ul>
                 </div>
                 <Link to='/feedme' className="back">Back</Link>
             </div>
         )
     }
-}
 
 export default Favorites
