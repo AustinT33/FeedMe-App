@@ -1,24 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/guest-start-page.css';
-import GuestRandomize from '../guest-randomize'
+import places from '../store'
 
 class StartPageGuest extends React.Component {
     state = {
-        result: ''
+        result: '',
+        pick: Math.floor(Math.random() * places.length),
+        display: false,
       };
+      
+
+    display = (place) => {
+        if(this.state.display){
+            return <h3>You should eat at {place.name}!</h3>
+        } else {
+            return <h3>Press the "Find me a restaurant" button to get started!</h3>
+        }
+    }
+
     handleRandomize = (e) => {
       e.preventDefault();
       this.setState({
-        result: <GuestRandomize />
+        display: true,
+        pick: Math.floor(Math.random() * places.length)
       })
     }
     render() {
+        const random = places[this.state.pick]
         return(
         <div className="start-page-guest">
             <h1 className="welcome">Can't Decide?<br/>Let Me Help With That!</h1>
             <div className="intro">
-                <h3>{this.state.result}</h3>
+                {this.display(random)}
             </div>
             <div className="options">
                 <select>

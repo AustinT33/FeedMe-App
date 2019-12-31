@@ -7,10 +7,29 @@ import StartPageGuest from './routes/start-page-guest';
 // import ForgotInfo from './routes/forgot-info-page';
 import LoggedInStartPage from './routes/logged-in-start-page';
 import Favorites from './routes/favorites';
+import AppContext from './contexts/context';
 
 class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      favorites: [],
+      addFavorite: place=>{
+        this.setState({favorites:[...this.state.favorites,place]})
+      },
+      removeFavorite: id=>{
+        this.setState({favorites:this.state.favorites.filter(fav=>fav.id!==id)})
+      }
+    }
+  }
+
+  componentDidMount(){
+    // fetch all of the favorites from the db
+  }
+
   render() {
     return (
+      <AppContext.Provider value={this.state}>
       <BrowserRouter>
         <div className="App">
           <Route exact path="/" component={HomePage}/>
@@ -22,6 +41,7 @@ class App extends React.Component {
           <Route path="/favorites" component={Favorites}/>
         </div>
       </BrowserRouter>
+      </AppContext.Provider>
     );
   }
 }

@@ -1,40 +1,66 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/logged-in.css';
-import Randomize from '../randomize'
-import Filtered from '../filter-result';
+import places from '../store'
+import Context from "../contexts/context";
 
 class LoggedInStartPage extends React.Component {
-    state = {
-        result: '',
-        filtered: '',
-        addFavorite: results => {
-            this.setState({
-                result: [...this.state.result, results]
-            })
-        },
-        removeFavorite: index => {
-            this.setState({
-                result: this.state.result.filter((results, i) => i !== index)
-            })
-        }
+    static contextType = Context;
+    constructor() {
+    super();
+    this.state = {
+        pick: Math.floor(Math.random() * places.length),
+        filteredPlaces: [],
+        display: false,
+        selectValue: '', touched: false,
       };
+    }
 
-    handleFilter = (e) => {
+    handlePriceFilter = (e) => {
         e.preventDefault();
-        this.setState({
-            filtered: <Filtered />
-        })
+        let filteredPlaces = [];
+        if(e.target.value === "price"){
+            filteredPlaces = [...places]
+        } else {
+            filteredPlaces = places.filter(place => place.price === e.target.value)
+        }
+        this.setState({filteredPlaces})
+    }
+
+    display = (place) => {
+        if(this.state.display){
+            console.log(place);
+            return (
+            <>
+                <h3>You should eat at {place.name}!</h3>
+                <button 
+                    onClick={() => this.context.addFavorite(place)} 
+                    className="faves">Add to Favorites?
+                </button>
+            </>
+            )
+        } else {
+           return <h3>Press the "Find me a restaurant" button to get started!</h3>
+        }
     }
 
     handleRandomize = (e) => {
       e.preventDefault();
-      this.setState({
-        result: <Randomize />
-      })
+       this.setState({
+        display: true,
+        pick: Math.floor(Math.random() * this.state.filteredPlaces.length)
+       })
+    }
+
+    componentDidMount(){
+        this.setState({
+            filteredPlaces: [...places]
+        });
     }
     render() {
+        const random = this.state.filteredPlaces[this.state.pick]
         return(
+        <Context.Provider value={this.state}>
         <div className="logged-in-main-page">
             <nav className="nav-bar" role="navigation">
                 <ul>
@@ -47,12 +73,11 @@ class LoggedInStartPage extends React.Component {
             </nav>
             <h1 className="welcome">Can't Decide? Let Me Help With That!</h1>
             <div className="intro">
-                <h3>{this.state.result}</h3>
-                <h4>{this.state.filtered}</h4>
+                {this.display(random)}
             </div>
             <div className="options">
-                <select>
-                    <option value="price" disabled selected hidden>Price</option>
+                <select onChange={e=>this.handlePriceFilter(e)} defaultValue="price">
+                    <option value="price" >Price</option>
                     <option value="$">$</option>
                     <option value="$$">$$</option>
                     <option value="$$$">$$$</option>
@@ -61,10 +86,10 @@ class LoggedInStartPage extends React.Component {
                 <button onClick={this.handleRandomize} className="start-button" type="button">Find Me A Restaurant!</button>
             </div>
                 <div className="extra-option">
-                    <button onClick={this.handleFilter} className="fave-randomize" type="button">Randomize By Favorites!</button>
-                    
+                    <button className="fave-randomize" type="button">Randomize By Favorites!</button>    
                 </div>
         </div>
+        </Context.Provider>
         )
     }
 }
