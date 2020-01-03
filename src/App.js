@@ -32,7 +32,7 @@ class App extends React.Component {
  
   componentDidMount(){
     // fetch all of the favorites from the db
-    const placeUrl = 'localhost:8000/restaurants';
+    const placeUrl = 'http://localhost:8000/restaurants';
     fetch(placeUrl)
       .then(res => res.json())
       .then(res => {
