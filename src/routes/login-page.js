@@ -10,18 +10,18 @@ class LoginPage extends React.Component {
         }
     }
 
-    handleUserName = (e) => {
-        console.log(this.state.username)
-        this.setState({ username: e.target.value })
-    }
+    // handleUserName = (e) => {
+    //     console.log(this.state.username)
+    //     this.setState({ username: e.target.value })
+    // }
 
-    addUserNameToNav = (e) => {
-        console.log(this.state.username)
-        e.preventDefault();
-        this.setState({
-            username: this.handleUserName()
-        })
-    }
+    // addUserNameToNav = (e) => {
+    //     console.log(this.state.username)
+    //     e.preventDefault();
+    //     this.setState({
+    //         username: this.handleUserName()
+    //     })
+    // }
 
     render() {
         return (
@@ -30,11 +30,10 @@ class LoginPage extends React.Component {
                 <form className="login-form">
                     <input 
                         type="text" placeholder="User Name" name="username" 
-                        value={this.state.username} onChange={this.handleUserName}
                     />
                     <input type="password" placeholder="Password"/>
                 </form>
-                    <Link  to="/feedme" className="login" onSubmit={this.addUserNameToNav}>Login</Link>
+                    <Link  to="/feedme" className="login">Login</Link>
                     {/* <Link to="/create-account" className="create">Don't have an account?</Link>        */}
                     {/* <Link to="/forgot-info" className="forgot">Forgot Login?</Link> */}
             </div>

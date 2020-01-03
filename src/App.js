@@ -14,6 +14,9 @@ class App extends React.Component {
     super();
     this.state = {
       favorites: [],
+      isLoaded: false,
+      error: null,
+      places: [],
     }
   }
 
@@ -29,8 +32,25 @@ class App extends React.Component {
  
   componentDidMount(){
     // fetch all of the favorites from the db
-  }
-
+    const placeUrl = 'http://localhost:8000/restaurants';
+    fetch(placeUrl)
+      .then(res => res.json())
+      .then(res => {
+          this.setState({
+            isLoaded: true,
+            places: res
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+        )
+      }
+   
+      
   render() {
     return (
       <AppContext.Provider value={this.state}>
@@ -38,10 +58,17 @@ class App extends React.Component {
           <div className="App">
             <Route exact path="/" component={HomePage}/>
             <Route path="/login" component={LoginPage}/>
-            <Route path="/feedme-guest" component={StartPageGuest}/>
+            <Route path="/feedme-guest" render={ ( routeProps ) => {
+              if(this.state.places.length === 0){
+                return (<div>Loading</div>)
+              } else {
+              return <StartPageGuest {...routeProps} places={this.state.places}/>}}}/>
             <Route path="/feedme" render={ (routeProps) => {
-              return <LoggedInStartPage {...routeProps} addFavorite={this.addFavorite}/>
-              }}/>
+              if(this.state.places.length === 0){
+                return ( <div>Loading</div>) 
+              } else {
+              return <LoggedInStartPage {...routeProps} places={this.state.places} addFavorite={this.addFavorite}/>
+              }}}/>
             <Route path="/favorites" render={(routeProps) => {
               return <Favorites {...routeProps} removeFavorite={this.removeFavorite}/>
               }}/>

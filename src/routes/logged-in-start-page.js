@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/logged-in.css'
-import places from '../store'
-import Context from "../contexts/context"
+import Context from '../contexts/context'
 import Navbar from '../navbar'
 // import Loading from '../pictures/loading-icon'
 
@@ -11,16 +10,15 @@ function randomNumber(max) {
 
 class LoggedInStartPage extends React.Component {
     static contextType = Context; // from here on, this.context is available
-    constructor() {
-    super();
+    constructor(props) {
+    super(props);
     this.state = {
-        pick: randomNumber(places.length),
-        filteredPlaces: [...places],
+        pick: randomNumber(props.places.length),
+        filteredPlaces: [...props.places],
         display: false,
         displayFave: false,
         favePick: null,
         filteredFaves: [],
-        // isLoading: false,
       };
     }
 
@@ -28,9 +26,9 @@ class LoggedInStartPage extends React.Component {
         e.preventDefault();
         let filteredPlaces = [];
         if(e.target.value === "price"){
-            filteredPlaces = [...places]
+            filteredPlaces = [...this.props.places]
         } else {
-            filteredPlaces = places.filter(place => place.price === e.target.value)
+            filteredPlaces = this.props.places.filter(place => place.price === e.target.value)
         }
         this.setState({
             filteredPlaces,
@@ -42,7 +40,7 @@ class LoggedInStartPage extends React.Component {
         if(this.state.display){
             return (
             <div className="results">
-                <h3>You should eat at {place.name}!</h3>
+                <h3>You should eat at {place.title}!</h3>
                 <button onClick={() => this.props.addFavorite(place)} className="faves">
                     Add to Favorites?
                 </button>
@@ -55,7 +53,7 @@ class LoggedInStartPage extends React.Component {
         } else if (this.state.displayFave){
             return (
                 <div className="results">
-                    <h3>You Should eat at {this.context.favorites[this.state.favePick].name}!</h3>
+                    <h3>You Should eat at {this.context.favorites[this.state.favePick].title}!</h3>
                     <p>This result is from your favorites list.</p>
                 </div>
             )
@@ -76,10 +74,9 @@ class LoggedInStartPage extends React.Component {
         }
     }
 
-    handleRandomize = (e) => {
+    handleRandomize = (e) => { 
       e.preventDefault();
        this.setState({
-        // isLoading: true,
         display: true,
         displayFave: false,
         pick: randomNumber(this.state.filteredPlaces.length)
@@ -87,7 +84,6 @@ class LoggedInStartPage extends React.Component {
     }
 
     handleFavoritesRandomize = (e) => {
-        console.log(this.context.favorites)
         e.preventDefault();
         this.handleNoFavesDisplay()
         this.setState({
@@ -106,8 +102,6 @@ class LoggedInStartPage extends React.Component {
     //     }
     // }
 
-    componentDidMount(){
-    }
     render() {
         const random = this.state.filteredPlaces[this.state.pick]
         const faveRandom = this.state.filteredFaves[this.state.favePick]

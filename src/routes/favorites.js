@@ -20,12 +20,11 @@ class Favorites extends React.Component {
                 </nav>
                 <h2 className="fave-header">My Favorites</h2>
                 <div className="fave-list">
-                    {/* {this.context.emptyFaves} */}
                     <ul className="fave-form">
                         { this.context.favorites.length ? 
                        this.context.favorites.map((fave, i) => ( 
                            <li className="fave-li">
-                               {fave.name}<button className="delete" onClick={()=>this.props.removeFavorite(fave.id)}>X</button>
+                               {fave.title}<button className="delete" onClick={()=>this.props.removeFavorite(fave.id)}>X</button>
                                </li>
                        )) : <h2 className="noFaves">No Favorites To Display</h2>}
                         
