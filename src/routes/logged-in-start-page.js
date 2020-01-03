@@ -1,18 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/logged-in.css';
+import React from 'react'
+import '../styles/logged-in.css'
 import places from '../store'
-import Context from "../contexts/context";
+import Context from "../contexts/context"
+import Navbar from '../navbar'
+// import Loading from '../pictures/loading-icon'
+
+function randomNumber(max) {
+    return Math.floor(Math.random() * max)
+}
 
 class LoggedInStartPage extends React.Component {
-    static contextType = Context;
+    static contextType = Context; // from here on, this.context is available
     constructor() {
     super();
     this.state = {
-        pick: Math.floor(Math.random() * places.length),
-        filteredPlaces: [],
+        pick: randomNumber(places.length),
+        filteredPlaces: [...places],
         display: false,
-        selectValue: '', touched: false,
+        displayFave: false,
+        favePick: null,
+        filteredFaves: [],
+        // isLoading: false,
       };
     }
 
@@ -24,60 +32,95 @@ class LoggedInStartPage extends React.Component {
         } else {
             filteredPlaces = places.filter(place => place.price === e.target.value)
         }
-        this.setState({filteredPlaces})
+        this.setState({
+            filteredPlaces,
+            pick: randomNumber(filteredPlaces.length)
+        })
     }
 
     display = (place) => {
         if(this.state.display){
-            console.log(place);
             return (
-            <>
+            <div className="results">
                 <h3>You should eat at {place.name}!</h3>
-                <button 
-                    onClick={() => this.context.addFavorite(place)} 
-                    className="faves">Add to Favorites?
+                <button onClick={() => this.props.addFavorite(place)} className="faves">
+                    Add to Favorites?
                 </button>
-            </>
+            </div>
+            )
+        } else if (this.state.noFavesDisplay){
+            return (
+                <p className="noFaves">Your favorites list is currently empty.</p>
+            )
+        } else if (this.state.displayFave){
+            return (
+                <div className="results">
+                    <h3>You Should eat at {this.context.favorites[this.state.favePick].name}!</h3>
+                    <p>This result is from your favorites list.</p>
+                </div>
             )
         } else {
-           return <h3>Press the "Find me a restaurant" button to get started!</h3>
+           return <h3 className="intro-text">Press the "Find me a restaurant" button to get started!</h3>
+        } 
+    }
+
+    handleNoFavesDisplay = () => {
+        if(this.context.favorites.length === 0) {
+            this.setState({
+                noFavesDisplay: true
+            })
+        } else {
+            this.setState({
+                noFavesDisplay: false
+            })
         }
     }
 
     handleRandomize = (e) => {
       e.preventDefault();
        this.setState({
+        // isLoading: true,
         display: true,
-        pick: Math.floor(Math.random() * this.state.filteredPlaces.length)
+        displayFave: false,
+        pick: randomNumber(this.state.filteredPlaces.length)
        })
     }
 
-    componentDidMount(){
+    handleFavoritesRandomize = (e) => {
+        console.log(this.context.favorites)
+        e.preventDefault();
+        this.handleNoFavesDisplay()
         this.setState({
-            filteredPlaces: [...places]
-        });
+            favePick: randomNumber(this.context.favorites.length),
+            displayFave: true,
+            display: false,
+        })
+    }
+    
+    // handleTimer = () => {
+    //     if(this.state.isLoading){
+    //         console.log('loading?')
+    //         setTimeout(() => {
+    //             this.setState({isLoading: false})
+    //         }, 3000) 
+    //     }
+    // }
+
+    componentDidMount(){
     }
     render() {
         const random = this.state.filteredPlaces[this.state.pick]
+        const faveRandom = this.state.filteredFaves[this.state.favePick]
         return(
-        <Context.Provider value={this.state}>
         <div className="logged-in-main-page">
-            <nav className="nav-bar" role="navigation">
-                <ul>
-                    <span className="logo">Logo</span>
-                    <span>UserName</span>
-                    <li><Link to='/' className="nav-links">Logout</Link></li>
-                    {/* <li><span className="nav-links">Account</span></li> */}
-                    <li><Link to='/favorites' className="nav-links">Favorites</Link></li>
-                </ul>
-            </nav>
+            <Navbar/>
             <h1 className="welcome">Can't Decide? Let Me Help With That!</h1>
             <div className="intro">
-                {this.display(random)}
+                {this.display(random || faveRandom)}
             </div>
             <div className="options">
                 <select onChange={e=>this.handlePriceFilter(e)} defaultValue="price">
-                    <option value="price" >Price</option>
+                    <option value="price">Price</option>
                     <option value="$">$</option>
                     <option value="$$">$$</option>
                     <option value="$$$">$$$</option>
@@ -86,10 +129,10 @@ class LoggedInStartPage extends React.Component {
                 <button onClick={this.handleRandomize} className="start-button" type="button">Find Me A Restaurant!</button>
             </div>
                 <div className="extra-option">
-                    <button className="fave-randomize" type="button">Randomize By Favorites!</button>    
+                    <button onClick={this.handleFavoritesRandomize} 
+                    className="fave-randomize" type="button">Randomize By Favorites!</button>    
                 </div>
         </div>
-        </Context.Provider>
         )
     }
 }

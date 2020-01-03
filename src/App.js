@@ -14,15 +14,19 @@ class App extends React.Component {
     super();
     this.state = {
       favorites: [],
-      addFavorite: place=>{
-        this.setState({favorites:[...this.state.favorites,place]})
-      },
-      removeFavorite: id=>{
-        this.setState({favorites:this.state.favorites.filter(fav=>fav.id!==id)})
-      }
     }
   }
 
+  addFavorite = place=>{
+    const present = this.state.favorites.find(fave => fave.id === place.id)
+    if(!present) {
+    this.setState({favorites:[...this.state.favorites,place]})
+    }
+  }
+  removeFavorite = id=>{
+    this.setState({favorites:this.state.favorites.filter(fav=>fav.id!==id)})
+  }
+ 
   componentDidMount(){
     // fetch all of the favorites from the db
   }
@@ -30,17 +34,21 @@ class App extends React.Component {
   render() {
     return (
       <AppContext.Provider value={this.state}>
-      <BrowserRouter>
-        <div className="App">
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/login" component={LoginPage}/>
-          <Route path="/feedme-guest" component={StartPageGuest}/>
-          {/* <Route path="/create-account" component={SignupPage}/> not needed for capstone*/}
-          {/* <Route path="/forgot-info" component={ForgotInfo}/> not needed for capstone*/}
-          <Route path="/feedme" component={LoggedInStartPage}/>
-          <Route path="/favorites" component={Favorites}/>
-        </div>
-      </BrowserRouter>
+        <BrowserRouter>
+          <div className="App">
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/login" component={LoginPage}/>
+            <Route path="/feedme-guest" component={StartPageGuest}/>
+            <Route path="/feedme" render={ (routeProps) => {
+              return <LoggedInStartPage {...routeProps} addFavorite={this.addFavorite}/>
+              }}/>
+            <Route path="/favorites" render={(routeProps) => {
+              return <Favorites {...routeProps} removeFavorite={this.removeFavorite}/>
+              }}/>
+            {/* <Route path="/create-account" component={SignupPage}/> not needed for capstone*/}
+            {/* <Route path="/forgot-info" component={ForgotInfo}/> not needed for capstone*/}
+          </div>
+        </BrowserRouter>
       </AppContext.Provider>
     );
   }
