@@ -92,15 +92,7 @@ class LoggedInStartPage extends React.Component {
             display: false,
         })
     }
-    
-    // handleTimer = () => {
-    //     if(this.state.isLoading){
-    //         console.log('loading?')
-    //         setTimeout(() => {
-    //             this.setState({isLoading: false})
-    //         }, 3000) 
-    //     }
-    // }
+
 
     render() {
         const random = this.state.filteredPlaces[this.state.pick]

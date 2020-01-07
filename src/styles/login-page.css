@@ -1,3 +1,20 @@
+
+.error {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: red;
+}
+
+.login-opts{
+    margin: 0 auto;
+}
+
+.back {
+    text-align: center;
+    margin: 0 auto;
+}
+
 h1 {
     /* text-align: center; */
     margin-top: 5%;
@@ -18,8 +35,8 @@ input {
 
 .login {
     display: block;
-    width: 30%;
     margin: 0 auto;
+    width: 30%;
     margin-top: 3%;
     border-radius: 10px;
     font-size: 28px;
