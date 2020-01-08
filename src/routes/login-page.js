@@ -11,10 +11,7 @@ class LoginPage extends React.Component {
         onLoginSuccess: () => {}
     }
     handleLoginSuccess = () => {
-      console.log('clicked')
-      const { location, history } = this.props
-      const destination = (location.state || {}).from || '/feedme'
-      history.push(destination)
+      this.props.history.push('/feedme')
     }
 
     render() {

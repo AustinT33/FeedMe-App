@@ -33,10 +33,13 @@ class App extends React.Component {
   // }
 
 
-//working and removing from favorites_list table
   handleDeleteFave = id => {
     const request = {
-      method: 'DELETE',
+      method: 'DELETE', 
+      headers: { 
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      }
+      // this will be used by the requireAuth middleware on the BE to add the user to req.user
     }
     fetch(`${config.API_ENDPOINT}/favorites/${id}`, request).then((res) => {
       return res.text()
@@ -73,10 +76,11 @@ class App extends React.Component {
           });
         }
         )
+      
     //fetch all favorites from the database
     fetch(`${config.API_ENDPOINT}/favorites`, {
       headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       }
     })
         .then(res => res.json())
@@ -94,6 +98,7 @@ class App extends React.Component {
         }
         )
       }
+      
 
     postFave(title, category, price){
       return fetch(`${config.API_ENDPOINT}/favorites`, {

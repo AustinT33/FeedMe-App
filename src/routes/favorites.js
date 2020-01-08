@@ -7,6 +7,7 @@ import Context from '../contexts/context'
 class Favorites extends React.Component {
     static contextType = Context;
     render() {
+        console.log(this.context)
         return(
             <div className="favorites-section">
                 <nav className="nav-bar" role="navigation">
@@ -23,7 +24,7 @@ class Favorites extends React.Component {
                     <ul className="fave-form">
                         { this.context.favorites.length ? 
                        this.context.favorites.map((fave, i) => ( 
-                           <li className="fave-li">
+                           <li className="fave-li" key={i}>
                                {fave.title}<button className="delete" onClick={()=>this.props.removeFavorite(fave.id)}>X</button>
                                </li>
                        )) : <h2 className="noFaves">No Favorites To Display</h2>}

@@ -33,22 +33,16 @@ class LoginForm extends Component {
           user_name: user_name.value,
           password: password.value,
         })
-          .then(res => {
-            user_name.value =''
+        .then(res => {
+            user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onLoginSuccess()
-            
-          })
-            .then(res => {
-              user_name.value = ''
-              password.value = ''
-              TokenService.saveAuthToken(res.authToken)
-              this.props.onLoginSuccess()
-            })
-            .catch(res => {
-              this.setState({ error: res.error })
-            })
+            console.log(res.authToken)
+        })
+        .catch(res => {
+            this.setState({ error: res.error })
+        })
       }
 
       render() {
@@ -59,10 +53,10 @@ class LoginForm extends Component {
                       {error && <p className='error'>{error}</p>}
                   </div>
                 <div className='user_name'>
-                    <input required name='user_name' id='LoginForm_user_name' placeholder='Username'/>
+                    <input required name='user_name' id='LoginForm_user_name' placeholder='Username' value="usertest1"/>
                 </div>
                 <div className='password'>
-                    <input required name='password' type='password' id='LoginForm_password' placeholder='Password'/>
+                    <input required name='password' type='password' id='LoginForm_password' placeholder='Password' value="passtest1"/>
                 </div>
                 <button className='login' type='submit'>Login</button>
                 <Link to='/' className='login'>Back</Link>
