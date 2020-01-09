@@ -35,18 +35,18 @@ class LoginForm extends Component {
       render() {
           const { error } = this.state
           return (
-              <form className='login-form' onSubmit={this.handleSubmitJwtAuth}>
-                  <div role='alert'>
-                      {error && <p className='error'>{error}</p>}
+              <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
+                  <div role="alert">
+                      {error && <p className="error">{error}</p>}
                   </div>
-                <div className='user_name'>
-                    <input required name='user_name' id='LoginForm_user_name' placeholder='Username'/>
+                <div className="user_name">
+                    <input required name="user_name" id="LoginForm_user_name" placeholder="Username"/>
                 </div>
-                <div className='password'>
-                    <input required name='password' type='password' id='LoginForm_password' placeholder='Password'/>
+                <div className="password">
+                    <input required name="password" type="password" id="LoginForm_password" placeholder="Password"/>
                 </div>
-                <button className="login-btn" type='submit'>Login</button>
-                <Link to='/' className='back-link'>Back</Link>
+                <button className="login-btn" type="submit">Login</button>
+                <Link to="/" className="back-link">Back</Link>
               </form>
           )
       }
