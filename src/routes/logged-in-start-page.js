@@ -40,7 +40,7 @@ class LoggedInStartPage extends React.Component {
         if(this.state.display){
             return (
             <div className="results">
-                <h3>You should eat at {place.title}!</h3>
+                <h3 className="result">You should eat at {place.title}!</h3>
                 <button onClick={() => this.props.addFavorite(place)} className="faves">
                     Add to Favorites?
                 </button>
@@ -53,7 +53,7 @@ class LoggedInStartPage extends React.Component {
         } else if (this.state.displayFave){
             return (
                 <div className="results">
-                    <h3>You Should eat at {this.context.favorites[this.state.favePick].title}!</h3>
+                    <h3 className="fave-result">You Should eat at {this.context.favorites[this.state.favePick].title}!</h3>
                     <p>This result is from your favorites list.</p>
                 </div>
             )

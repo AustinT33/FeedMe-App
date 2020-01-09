@@ -2,23 +2,15 @@ import React from 'react'
 import '../styles/favorites.css'
 import { Link } from 'react-router-dom'
 import Context from '../contexts/context'
+import Navbar from '../navbar'
 
 
 class Favorites extends React.Component {
     static contextType = Context;
     render() {
-        console.log(this.context)
         return(
             <div className="favorites-section">
-                <nav className="nav-bar" role="navigation">
-                    <ul>
-                        <span className="logo">Logo</span>
-                        <span>UserName</span>
-                        <li><Link to='/' className="nav-links">Logout</Link></li>
-                        {/* <li><span className="nav-links">Account</span></li> */}
-                        <li><Link to='/favorites' className="nav-links">Favorites</Link></li>
-                    </ul>
-                </nav>
+                <Navbar/>
                 <h2 className="fave-header">My Favorites</h2>
                 <div className="fave-list">
                     <ul className="fave-form">
@@ -27,7 +19,7 @@ class Favorites extends React.Component {
                            <li className="fave-li" key={i}>
                                {fave.title}<button className="delete" onClick={()=>this.props.removeFavorite(fave.id)}>X</button>
                                </li>
-                       )) : <h2 className="noFaves">No Favorites To Display</h2>}
+                       )) : <h2 className="noFaves-list">No Favorites To Display</h2>}
                         
                            
                     </ul>

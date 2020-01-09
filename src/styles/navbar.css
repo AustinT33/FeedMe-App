@@ -1,5 +1,9 @@
 .nav-bar {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #f21905;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 3px;
+    background-color: whitesmoke;
 }
 
 ul {
@@ -10,25 +14,31 @@ ul {
     font-size: 16px;
 }
 
-.nav-links {
-    color:#2b2b2b;
+.logout-link {
     text-decoration: none;
+    color: #f21905;
+}
+
+.favorites-link {
+    text-decoration: none;
+    color: black;
 }
 
 li {
-    display: inline;
     float: right;
-    padding-right: 10px;
-    font-size: 22px;
+    padding-right: 1%;
+    font-size: 26px;
+    margin-top: 2.5%;
 }
 
 span {
     float: left;
-    margin: 0;
-    font-size: 22px;
+    padding-left: 2%;
+    margin-top: 2.5%;
+    font-size: 26px;
+    color: black;
 }
 
-.logo {
-    border-radius: 100%;
-    border: 1px solid black;
+.nav-logo {
+    float: left;
 }

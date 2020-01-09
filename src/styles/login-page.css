@@ -2,14 +2,17 @@
 .error {
     text-align: center;
     margin: 0 auto;
-    font-size: 20px;
-    color: red;
+    font-size: 26px;
+    color: #ed2800;
+    margin-top: -4%;
 }
 
-h1 {
-    /* text-align: center; */
-    margin-top: 5%;
+.login-header {
     font-size: 80px;
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #f21905;
 }
 
 input {
@@ -19,23 +22,44 @@ input {
     margin-top: 3%;
     height: 75px;
     width: 50%;
-    font-size: 35px;
+    font-size: 30px;
     border-radius: 10px;
     border-color: black;
+    box-shadow: 2px 3px #353535;
 }
 
-.login {
+.login-btn {
     display: block;
     margin: 0 auto;
-    width: 30%;
+    width: 31%;
     margin-top: 3%;
     border-radius: 10px;
     font-size: 28px;
     text-align: center;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
+    background-color: white;
+    border: 2px solid #f21905;
+    box-shadow: 2px 3px #353535;
     padding: 5px;
+    cursor: pointer;
+}
+
+.back-link {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    margin-top: 3%;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 2px solid #f21905;
+    box-shadow: 2px 3px #353535;
+    padding: 5px;
+    cursor: pointer;
 }
 /* 
 .create {
@@ -61,11 +85,8 @@ input {
 
 @media only screen and (max-width: 500px) {
 
-    .login-html {
-        margin-top: 40%;
-    }
-
-    .welcome {
+    .login-header {
+        margin-top: 25%;
         font-size: 60px;
     }
 
@@ -76,9 +97,16 @@ input {
         margin-bottom: 5%;
     }
 
-    .login {
-        width: 35%;
+    .login-btn {
+        margin-top: 10%;
+        margin-bottom: 5%;
+        width: 57%;
         font-size: 26px;
+    }
+
+    .back-link {
+        width: 53%;
+        font-size: 28px;
     }
 
     /* .create {
@@ -95,9 +123,9 @@ input {
 
 @media only screen and (max-width: 900px) and (min-width: 500px) {
 
-    .welcome {
-        margin-top: 20%;
-        font-size: 75px;
+    .login-header {
+        margin-top: 15%;
+        font-size: 80px;
     }
 
     input {
@@ -107,9 +135,14 @@ input {
         margin-bottom: 5%;
     }
 
-    .login {
-        width: 25%;
-        font-size: 26px;
+    .login-btn {
+        width: 45%;
+        font-size: 30px;
+    }
+
+    .back-link {
+        width: 44%;
+        font-size: 32px;
     }
 
     /* .create {
@@ -125,11 +158,28 @@ input {
 
 }
 
-@media only screen and (max-width: 1400px) and (min-width: 900px) {
+@media only screen and (max-width: 1050px) and (min-width: 900px) {
 
-    .welcome {
+    .login-header {
         margin-top: 15%;
-        font-size: 75px;
+        font-size: 100px;
+    }
+
+    input {
+        width: 75%;
+        font-size: 60px;
+        height: 80px;
+        margin-bottom: 5%;
+    }
+
+    .login-btn {
+        width: 45%;
+        font-size: 50px;
+    }
+
+    .back-link {
+        width: 44%;
+        font-size: 52px;
     }
 
 }

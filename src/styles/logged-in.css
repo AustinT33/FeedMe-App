@@ -1,40 +1,53 @@
 .faves {
     font-size: 24px;
-    margin-top: 5%;
     border-radius: 10px;
     width: 45%;
     border: 1px solid black;
-    background-color: white;
+    color: black;
+    background-color: whitesmoke;
+    box-shadow: 2px 3px #353535;
+    cursor: pointer;
 }
 
 .noFaves {
     /* font-family: Comic Sans MS, Comic Sans, cursive; */
     margin-left: 1%;
     margin-right: 1%;
+    margin-top: 0;
+    color: black;
 }
 
 .welcome {
     margin-top: 3%;
+    font-size: 46px;
     text-align: center;
+    color: whitesmoke;
 }
 
 .intro {
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid #f21905;
     width: 60%;
     margin: 0 auto;
-    height: 200px;
+    height: 150px;
     padding-top: 100px;
     font-size: 30px;
     border-radius: 10px;
+    background-color:white;
 }
 
-h3 { 
+.intro-text {
     margin-top: -2%;
 }
-.intro-text {
-    margin-top: 2%;
+
+.result {
+    margin-top: -2%;
 }
+
+.fave-result {
+    margin-top: -7%;
+}
+
 
 .options {
     text-align: center;
@@ -43,22 +56,26 @@ h3 {
 }
 
 select {
+    font-weight: bold;
     width: 20%;
     height: 30px;
     font-size: 18px;
     border-radius: 10px;
-    border-color: black;
-    background-color: white;
+    border: 2px solid #f21905;
+    color: black;
+    cursor: pointer;
 }
 
 .start-button {
+    font-weight: bold;
     width: 40%;
     height: 31px;
     font-size: 18px;
     border-radius: 10px;
-    border-color: black;
-    background-color: white;
+    border: 2px solid #f21905;
+    color: black;
     margin-left: 1%;
+    cursor: pointer;
 }
 
 .extra-option {
@@ -66,13 +83,16 @@ select {
 }
 
 .fave-randomize {
+    cursor: pointer;
+    font-weight: bold;
     margin-top: 2%;
     width: 60%;
     height: 31px;
     font-size: 18px;
     border-radius: 10px;
-    border-color: black;
-    background-color: white;
+    border: 2px solid #f21905;
+    color: black;
+    background-color: whitesmoke;
 }
 
 @media only screen and (max-width: 500px) {
@@ -102,7 +122,7 @@ select {
 
     .intro {
         width: 80%;
-        height: 250px;
+        height: 200px;
         position: relative;
     }
 
@@ -148,6 +168,15 @@ select {
         height: 300px;
     }
 
+    .intro-text {
+        margin-top: 7%;
+    }
+
+    .result, .results {
+        margin-top: 7%;
+        font-size: 38px;
+    }
+
     select {
         width: 30%;
         font-size: 26px;
@@ -174,18 +203,22 @@ select {
         font-size: 26px;
         height: 40px;
     }
+
+    .noFaves {
+        margin-top: 10%;
+    }
 }
 
 @media only screen and (max-width: 1050px) and (min-width: 900px) {
 
     .welcome {
         font-size: 50px;
-        margin-top: 10%;
+        margin-top: 15%;
     }
 
     .intro {
         width: 80%;
-        height: 500px;
+        height: 400px;
     }
 
     select {
@@ -214,6 +247,27 @@ select {
 
     span {
         font-size: 34px;
+    }
+
+    .noFaves {
+        margin-top: 12%;
+        font-size: 48px;
+    }
+
+    
+    .results {
+        margin-top: 14%;
+        font-size: 42px;
+    }
+
+    .faves {
+        font-size: 36px;
+        width: 50%;
+    }
+
+    .intro-text {
+        font-size: 42px;
+        margin-top: 10%;
     }
 
 }

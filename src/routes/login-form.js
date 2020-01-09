@@ -10,20 +10,7 @@ class LoginForm extends Component {
     }
 
     state = { error: null }
-
-    handleSubmitBasicAuth = (e) => {
-        e.preventDefault()
-        
-        const { user_name, password } = e.target
-    
-        TokenService.saveAuthToken(
-          TokenService.makeBasicAuthToken(user_name.value, password.value)
-        )
-        user_name.value = ''
-        password.value = ''
-        this.props.onLoginSuccess()
-      }
-    
+  
       handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         this.setState({ error: null })
@@ -38,13 +25,13 @@ class LoginForm extends Component {
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onLoginSuccess()
-            console.log(res.authToken)
         })
         .catch(res => {
             this.setState({ error: res.error })
         })
       }
 
+      //dummy user info = username: usertest1 password: passtest1 or dummyuser #2 = username: usertest2 password: passtest2
       render() {
           const { error } = this.state
           return (
@@ -53,13 +40,13 @@ class LoginForm extends Component {
                       {error && <p className='error'>{error}</p>}
                   </div>
                 <div className='user_name'>
-                    <input required name='user_name' id='LoginForm_user_name' placeholder='Username' value="usertest1"/>
+                    <input required name='user_name' id='LoginForm_user_name' placeholder='Username'/>
                 </div>
                 <div className='password'>
-                    <input required name='password' type='password' id='LoginForm_password' placeholder='Password' value="passtest1"/>
+                    <input required name='password' type='password' id='LoginForm_password' placeholder='Password'/>
                 </div>
-                <button className='login' type='submit'>Login</button>
-                <Link to='/' className='login'>Back</Link>
+                <button className="login-btn" type='submit'>Login</button>
+                <Link to='/' className='back-link'>Back</Link>
               </form>
           )
       }

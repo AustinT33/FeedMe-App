@@ -10,6 +10,7 @@ import LoggedInStartPage from './routes/logged-in-start-page';
 import Favorites from './routes/favorites';
 import AppContext from './contexts/context';
 import config from './config'
+import './styles/app.css'
 
 class App extends React.Component {
   constructor(){
@@ -19,34 +20,51 @@ class App extends React.Component {
       isLoaded: false,
       error: null,
       places: [],
+      loggedIn: false,
     }
   }
 
-  addFavorite = place=>{
-    const present = this.state.favorites.find(fave => fave.id === place.id)
+  handleAddFave = place => {
+    const present = this.state.favorites.find(fave => fave.title === place.title)
+    console.log(present);
     if(!present) {
-    this.setState({favorites:[...this.state.favorites,place]})
+      const request = {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'authorization': `bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify({restaurant: place.id})
+      }
+      fetch(`${config.API_ENDPOINT}/favorites`, request).then((res) => {
+        return res.json()
+      })
+      .then((res) => {
+        
+          this.setState({favorites:[...this.state.favorites,place]})
+          alert('Added To Favorites.')
+          // let win = alert('Added To Favorites.')
+          // setTimeout(function() { win.close(); }, 2000);
+        
+      })
+    } else {
+      alert('Already a favorite');
     }
   }
-  // removeFavorite = id=>{
-  //   this.setState({favorites:this.state.favorites.filter(fave=>fave.id!==id)})
-  // }
-
 
   handleDeleteFave = id => {
     const request = {
       method: 'DELETE', 
       headers: { 
         'authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-      // this will be used by the requireAuth middleware on the BE to add the user to req.user
+      },
     }
     fetch(`${config.API_ENDPOINT}/favorites/${id}`, request).then((res) => {
       return res.text()
     })
     .then((res) => {
       this.setState({favorites: this.state.favorites.filter(fave=>fave.id!==id)})
-      console.log('deleted fave')
+      alert('Removed From Favorites.')
     })
   }
 
@@ -75,10 +93,16 @@ class App extends React.Component {
             error
           });
         }
-        )
-      
+      )
+    this.getFavorites();
+    this.setState({loggedIn: window.localStorage.getItem(config.TOKEN_KEY)})
+  }
+
+    
+
+    getFavorites = () => {
     //fetch all favorites from the database
-    fetch(`${config.API_ENDPOINT}/favorites`, {
+    return fetch(`${config.API_ENDPOINT}/favorites`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       }
@@ -99,43 +123,15 @@ class App extends React.Component {
         )
       }
       
-
-    postFave(title, category, price){
-      return fetch(`${config.API_ENDPOINT}/favorites`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title,
-          category,
-          price,
-        }),
-      })
-      //refactor add favorites function into .then res
-      .then((res) => res.json())
-      .then(res => {
-        this.setState({
-          favorites: res.body
-        })
-      .catch((error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      })
-    })
-  }
-
-
-      
   render() {
     return (
       <AppContext.Provider value={this.state}>
         <BrowserRouter>
           <div className="App">
             <Route exact path="/" component={HomePage}/>
-            <Route path="/login" component={LoginPage}/>
+            <Route path="/login" render={(routeProps) => {
+            return <LoginPage {...routeProps} getFavorites={this.getFavorites}  loggedIn={() => this.setState({loggedIn: true,})}/>
+            }}/>
             <Route path="/feedme-guest" render={ ( routeProps ) => {
               if(this.state.places.length === 0){
                 return (<div className="loading">Loading</div>)
@@ -145,7 +141,7 @@ class App extends React.Component {
               if(this.state.places.length === 0){
                 return ( <div>Loading</div>) 
               } else {
-              return <LoggedInStartPage {...routeProps} places={this.state.places} addFavorite={this.addFavorite}/>
+              return <LoggedInStartPage {...routeProps} toggle={this.toggleWindow} places={this.state.places} addFavorite={this.handleAddFave}/>
               }}}/>
             <Route path="/favorites" render={(routeProps) => {
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>

@@ -1,10 +1,14 @@
-.noFaves{
+.noFaves-list{
   text-align: center;
+  color: whitesmoke;
+  text-decoration: underline;
+  text-decoration-color: #f21905;
 }
 
 .fave-header {
     text-align: center;
     font-size: 40px;
+    color: whitesmoke;
 }
 
 .fave-li {
@@ -15,6 +19,7 @@
   margin-top: 2%;
   padding: 8px;
   border-radius: 10px;
+  background-color: whitesmoke;
 }
 
 .fave-list{
@@ -28,6 +33,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .delete {
@@ -36,21 +42,22 @@
   border: 1px solid black;
   border-radius: 10px;
   font-weight: bold;
-  background-color: white;
+  background-color: whitesmoke;
   float: right;
+  cursor: pointer;
 }
 
 .back-btn {
-    color: black;
     text-decoration: none;
     font-size: 24px;
-    border: 1px solid black;
+    border: 2px solid #f21905;
     border-radius: 10px;
     padding: 3px;
     text-align: center;
     margin: 0 auto;
     width: 20%;
     margin-top: 2%;
+    background-color: whitesmoke;
 }
 
 .back {
@@ -66,6 +73,64 @@
 
   .back-btn {
     margin-top: 5%;
+    width: 35%;
+  }
+
+}
+
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+
+  .fave-header {
+    font-size: 52px;
+    margin-top: 8%;
+  }
+
+  .noFaves-list {
+    font-size: 32px;
+  }
+
+  .back {
+    font-size: 34px;
+  }
+
+  .back-btn {
+    width: 30%;
+  }
+
+  .fave-li {
+    font-size: 30px;
+  }
+
+  .delete {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 1050px) and (min-width: 900px) {
+
+  .fave-header {
+    font-size: 70px;
+    margin-top: 10%;
+  }
+
+  .fave-li {
+    font-size: 40px;
+  }
+
+  .delete {
+    font-size: 32px;
+  }
+
+  .back-btn {
+    width: 30%;
+  }
+
+  .back {
+    font-size: 38px;
+  }
+
+  .noFaves-list {
+    font-size: 40px;
   }
 
 }

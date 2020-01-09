@@ -1,148 +1,199 @@
-.start-page-guest {
-    margin-top: -2%;
-}
-
-.results{
+.welcome-guest {
+    text-align: center;
+    color: whitesmoke;
     margin-top: 3%;
+    font-size: 40px;
 }
 
-.welcome {
+.intro-guest {
     text-align: center;
-}
-
-.intro {
-    text-align: center;
-    border: 1px solid black;
+    border: 2px solid #f21905;
     width: 60%;
     margin: 0 auto;
     height: 200px;
+    width: 62%;
     padding-top: 100px;
     font-size: 30px;
     border-radius: 10px;
+    background-color: whitesmoke;
 }
 
-.options {
+.results-guest {
+    margin-top: 2%;
+}
+
+.results-display {
+    margin-top: 3%;
+}
+
+.options-guest {
     text-align: center;
     margin: 0 auto;
     margin-top: 3%;
 }
 
-select {
-    width: 10%;
+.select-guest {
+    font-weight: bold;
+    width: 20%;
     height: 30px;
     font-size: 18px;
     border-radius: 10px;
-    border-color: black;
+    border: 2px solid #f21905;
+    background-color: white;
+    cursor: pointer;
 }
 
-.start-button {
-    width: 15%;
+.start-button-guest {
+    font-weight: bold;
+    width: 40%;
     height: 31px;
     font-size: 18px;
     border-radius: 10px;
-    border-color: black;
+    border: 2px solid #f21905;
+    background-color: white;
+    margin-left: 1%;
+    cursor: pointer;
 }
 
-.login-link {
+.not-logged-in-link-guest {
     text-decoration: none;
-    color: #262626;
-    font-size: 18px; 
+    color: whitesmoke;
+    font-size: 24px; 
 }
-.link {
+.link-guest {
     border: none;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 @media only screen and (max-width: 500px) {
 
-    .welcome {
+    .welcome-guest {
         margin-top: 15%;
-        font-size: 24px;
+        font-size: 36px;
     }
 
-    .options {
+    .options-guest {
         margin-top: 10%;
     }
 
-    .intro {
-        width: 80%;
-        height: 250px;
+    .results-display {
+        margin-top: -5%;
     }
 
-    select {
+    .results-guest {
+        margin-top: -10%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .intro-guest {
+        width: 80%;
+        height: 150px;
+    }
+
+    .select-guest {
         width: 20%;
     }
 
-    .start-button {
+    .start-button-guest {
         width: 60%;
     }
 
-    .link {
+    .link-guest {
         margin-top: 15%;
+    }
+
+    .not-logged-in-link-guest {
+        font-size: 22px;
     }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 500px) {
 
-    .welcome {
+    .welcome-guest {
+        font-size: 50px;
+        margin-top: 15%;
+    }
+
+    .results-display {
+        margin-top: 5%;
         font-size: 40px;
     }
 
-    .intro {
+    .intro-guest {
         width: 80%;
-        height: 300px;
+        height: 200px;
     }
 
-    select {
+    .select-guest {
         width: 30%;
         font-size: 26px;
         height: 50px;
     }
 
-    .start-button {
+    .start-button-guest {
         width: 50%;
         font-size: 26px;
         height: 50px;
     }
 
-    .login-link {
+    .login-link-guest {
         font-size: 24px;
     }
 
-    .link {
+    .link-guest {
         margin-top: 20%;
+    }
+
+    .not-logged-in-link-guest {
+        font-size: 30px;
     }
 }
 
 @media screen and (max-width: 1050px) and (min-width: 900px) {
 
-    .welcome {
-        font-size: 50px;
+    .welcome-guest {
+        font-size: 60px;
+        margin-top: 10%;
     }
 
-    .intro {
+    .intro-guest {
         width: 80%;
-        height: 550px;
+        height: 450px;
     }
 
-    select {
+    .select-guest {
         width: 30%;
         font-size: 34px;
         height: 70px;
     }
 
-    .start-button {
+    .start-button-guest {
         width: 50%;
         font-size: 34px;
         height: 70px;
     }
 
-    .login-link {
+    .login-link-guest {
         font-size: 30px;
     }
 
-    .link {
+    .link-guest {
         margin-top: 20%;
+    }
+
+    .not-logged-in-link-guest {
+        font-size: 40px;
+    }
+
+    .results-display {
+        font-size: 50px;
+        margin-top: 10%;
+    }
+
+    .results-guest {
+        font-size: 50px;
+        margin-top: 10%;
     }
 }
