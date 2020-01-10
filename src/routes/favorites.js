@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/favorites.css'
 import { Link } from 'react-router-dom'
 import Context from '../contexts/context'
-import Navbar from '../navbar'
+import Navbar from '../components/navbar'
 
 
 class Favorites extends React.Component {

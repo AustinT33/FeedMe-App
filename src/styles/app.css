@@ -1,3 +1,17 @@
 body {
    background-color: black;
+   font-family: sans-serif;
+}
+
+button:focus {
+   outline: 0;
+}
+
+input:focus {
+   outline: 0;
+   background-color: black;
+}
+
+select:focus {
+   outline: 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/guest-start-page.css';
+import Logo from '../pictures/feedme-logo.png'
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max)
@@ -50,7 +51,8 @@ class StartPageGuest extends React.Component {
         const random = this.state.filteredPlaces[this.state.pick]
         return(
         <div className="start-page-guest">
-            <h1 className="welcome-guest">Can't Decide?<br/>Let Me Help With That!</h1>
+            <img src={Logo} className="feedme-guest" alt="feedme-logo"/>
+            <h1 className="welcome-guest">Can't Decide? Let Me Help With That!</h1>
             <div className="intro-guest">
                 {this.display(random)}
             </div>
@@ -65,7 +67,7 @@ class StartPageGuest extends React.Component {
                 <button onClick={this.handleRandomize} className="start-button-guest" type="button">Find Me A Restaurant!</button>
             </div>
             <div className="link-guest">
-                <Link to="/login" className="not-logged-in-link-guest">Not Logged In? Tap Here To Log In</Link>
+                <Link to="/" className="not-logged-in-link-guest">Not Logged In? Tap Here To Log In</Link>
             </div>
         </div>
         )

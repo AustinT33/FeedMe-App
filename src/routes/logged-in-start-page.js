@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/logged-in.css'
 import Context from '../contexts/context'
-import Navbar from '../navbar'
+import Navbar from '../components/navbar'
 // import Loading from '../pictures/loading-icon'
 
 function randomNumber(max) {

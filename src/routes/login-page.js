@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from './login-form'
 import '../styles/login-page.css';
+import Logo from '../pictures/feedme-logo.png'
 
 
 class LoginPage extends React.Component {
@@ -20,7 +21,7 @@ class LoginPage extends React.Component {
     render() {
         return (
               <div>
-                <h2 className='login-header'>Login</h2>
+                <img src={Logo} className="feedme-login" alt="feedme-logo"/>
                 <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
               </div>
             )

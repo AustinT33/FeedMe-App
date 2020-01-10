@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import TokenService from './services/token-service'
 import LoginPage from './routes/login-page';
-import HomePage from './routes/home-page';
 import StartPageGuest from './routes/start-page-guest';
 // import SignupPage from './routes/signup-page';
 // import ForgotInfo from './routes/forgot-info-page';
@@ -26,7 +25,6 @@ class App extends React.Component {
 
   handleAddFave = place => {
     const present = this.state.favorites.find(fave => fave.title === place.title)
-    console.log(present);
     if(!present) {
       const request = {
         method: 'POST',
@@ -128,8 +126,8 @@ class App extends React.Component {
       <AppContext.Provider value={this.state}>
         <BrowserRouter>
           <div className="App">
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/login" render={(routeProps) => {
+            {/* <Route exact path="/" component={HomePage}/> */}
+            <Route exact path="/" render={(routeProps) => {
             return <LoginPage {...routeProps} getFavorites={this.getFavorites}  loggedIn={() => this.setState({loggedIn: true,})}/>
             }}/>
             <Route path="/feedme-guest" render={ ( routeProps ) => {

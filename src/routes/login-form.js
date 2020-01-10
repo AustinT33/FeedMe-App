@@ -46,7 +46,7 @@ class LoginForm extends Component {
                     <input required name="password" type="password" id="LoginForm_password" placeholder="Password"/>
                 </div>
                 <button className="login-btn" type="submit">Login</button>
-                <Link to="/" className="back-link">Back</Link>
+                <Link to="/feedme-guest" className="guest-button" >Continue as guest</Link>
               </form>
           )
       }
