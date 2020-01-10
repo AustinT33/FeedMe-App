@@ -129,7 +129,7 @@ class App extends React.Component {
             }}/>
             <Route path="/feedme-guest" render={ ( routeProps ) => {
               if(this.state.places.length === 0){
-                return (<div className="loading">Loading</div>)
+                return (<div className="loading-status">Loading</div>)
               } else {
               return <StartPageGuest {...routeProps} places={this.state.places}/>}}}/>
             <Route path="/feedme" render={ (routeProps) => {
