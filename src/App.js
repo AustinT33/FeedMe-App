@@ -34,7 +34,7 @@ class App extends React.Component {
         },
         body: JSON.stringify({restaurant: place.id})
       }
-      fetch(`${config.API_ENDPOINT}/favorites`, request).then((res) => {
+      fetch(`${config.API_ENDPOINT}/api/favorites`, request).then((res) => {
         return res.json()
       })
       .then((res) => {
@@ -57,7 +57,7 @@ class App extends React.Component {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     }
-    fetch(`${config.API_ENDPOINT}/favorites/${id}`, request).then((res) => {
+    fetch(`${config.API_ENDPOINT}/api/favorites/${id}`, request).then((res) => {
       return res.text()
     })
     .then((res) => {
