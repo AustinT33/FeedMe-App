@@ -136,13 +136,13 @@ class App extends React.Component {
               if(this.state.places.length === 0) {
                 return ( <div className="loading-status">Loading...</div>) 
               } else {
-                if(TokenService.hasAuthToken()) {
-                  return ( <div className="loading-status">You are not logged in.</div> )
-                } else {
+              if(!this.state.loggedIn) {
+                return ( <div className="loading-status">You are not logged in.</div> )
+              } else {
               return <LoggedInStartPage {...routeProps} toggle={this.toggleWindow} places={this.state.places} addFavorite={this.handleAddFave}/>
               }}}}/>
             <Route path="/favorites" render={(routeProps) => {
-              if(TokenService.hasAuthToken()) {
+              if(!this.state.loggedIn) {
                 return (<div className="loading-status">You are not logged in.</div>)
               } else {
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
