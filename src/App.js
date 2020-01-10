@@ -77,7 +77,7 @@ class App extends React.Component {
  
   componentDidMount(){
     // fetch all of the restaurants from the db
-    fetch(`${config.API_ENDPOINT}/restaurants`)
+    fetch(`${config.API_ENDPOINT}/api/restaurants`)
       .then(res => res.json())
       .then(res => {
           this.setState({
@@ -100,7 +100,7 @@ class App extends React.Component {
 
     getFavorites = () => {
     //fetch all favorites from the database
-    return fetch(`${config.API_ENDPOINT}/favorites`, {
+    return fetch(`${config.API_ENDPOINT}/api/favorites`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       }
