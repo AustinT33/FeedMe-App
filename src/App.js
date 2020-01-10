@@ -142,6 +142,7 @@ class App extends React.Component {
               return <LoggedInStartPage {...routeProps} toggle={this.toggleWindow} places={this.state.places} addFavorite={this.handleAddFave}/>
               }}}/>
             <Route path="/favorites" render={(routeProps) => {
+              TokenService.hasAuthToken()
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
               }}/>
             {/* <Route path="/create-account" component={SignupPage}/> not needed for capstone*/}
