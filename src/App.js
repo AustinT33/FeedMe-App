@@ -41,9 +41,6 @@ class App extends React.Component {
         
           this.setState({favorites:[...this.state.favorites,place]})
           alert('Added To Favorites.')
-          // let win = alert('Added To Favorites.')
-          // setTimeout(function() { win.close(); }, 2000);
-        
       })
     } else {
       alert('Already a favorite');
@@ -136,15 +133,17 @@ class App extends React.Component {
               } else {
               return <StartPageGuest {...routeProps} places={this.state.places}/>}}}/>
             <Route path="/feedme" render={ (routeProps) => {
-              if(this.state.places.length === 0){
-                return ( <div>Loading</div>) 
+              if(this.state.places.length === 0 || TokenService.hasAuthToken()){
+                return ( <div className="loading-status">Loading...<br/>Or<br/>You are not logged in.</div>) 
               } else {
               return <LoggedInStartPage {...routeProps} toggle={this.toggleWindow} places={this.state.places} addFavorite={this.handleAddFave}/>
               }}}/>
             <Route path="/favorites" render={(routeProps) => {
-              TokenService.hasAuthToken()
+              if(TokenService.hasAuthToken()) {
+                return (<div className="loading-status">You are not logged in.</div>)
+              } else {
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
-              }}/>
+              }}}/>
             {/* <Route path="/create-account" component={SignupPage}/> not needed for capstone*/}
             {/* <Route path="/forgot-info" component={ForgotInfo}/> not needed for capstone*/}
           </div>
