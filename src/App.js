@@ -133,13 +133,13 @@ class App extends React.Component {
               } else {
               return <StartPageGuest {...routeProps} places={this.state.places}/>}}}/>
             <Route path="/feedme" render={ (routeProps) => {
-              if(this.state.places.length === 0 || TokenService.hasAuthToken()){
+              if(this.state.places.length === 0 || TokenService.getAuthToken()){
                 return ( <div className="loading-status">Loading...<br/>Or<br/>You are not logged in.</div>) 
               } else {
               return <LoggedInStartPage {...routeProps} toggle={this.toggleWindow} places={this.state.places} addFavorite={this.handleAddFave}/>
               }}}/>
             <Route path="/favorites" render={(routeProps) => {
-              if(TokenService.hasAuthToken()) {
+              if(TokenService.getAuthToken()) {
                 return (<div className="loading-status">You are not logged in.</div>)
               } else {
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
