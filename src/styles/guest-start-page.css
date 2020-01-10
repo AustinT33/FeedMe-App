@@ -30,7 +30,24 @@
     font-size: 32px;
     color: whitesmoke;
     margin-bottom: 7%;
+    overflow: hidden;
+    border-right: .10em solid whitesmoke;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation:
+        typing 2s steps(35, end),
+        blink-caret .75s step-end infinite;
 }
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 75% }
+  }
+
+@keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    10% { border-right-color: whitesmoke; }
+  }
 
 .options-guest {
     text-align: center;
@@ -87,6 +104,10 @@
         margin-top: 10%;
         font-size: 24px;
         margin-bottom: 10%;
+        animation: none;
+        overflow: visible;
+        white-space: normal;
+        border-right: none;
     }
 
     .results-guest {
