@@ -51,7 +51,7 @@ class StartPageGuest extends React.Component {
         const random = this.state.filteredPlaces[this.state.pick]
         return(
         <div className="start-page-guest">
-            <img src={Logo} className="feedme-guest" alt="feedme-logo"/>
+            <Link to="/"><img src={Logo} className="feedme-guest" alt="feedme-logo"/></Link>
             <h1 className="welcome-guest">Can't Decide? Let Me Help With That!</h1>
             <div className="intro-guest">
                 {this.display(random)}
