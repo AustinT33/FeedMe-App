@@ -103,6 +103,10 @@
         margin-top: 10%;
         font-size: 24px;
         margin-bottom: 10%;
+        animation: none;
+        overflow: visible;
+        white-space: normal;
+        border-right: none;
     }
 
     .results-guest {
