@@ -147,7 +147,7 @@ class App extends React.Component {
               } else {
               return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
               }}}/>
-            {/* <Route path="/create-account" component={SignupPage}/> not needed for capstone*/}
+            {/* <Route path="/signup" component={SignupPage}/> */}
             {/* <Route path="/forgot-info" component={ForgotInfo}/> not needed for capstone*/}
           </div>
         </BrowserRouter>

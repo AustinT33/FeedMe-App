@@ -26,12 +26,11 @@
 }
 
 .results-display {
-    margin-top: 7%;
+    padding-top: 5%;
     font-size: 32px;
     color: whitesmoke;
-    margin-bottom: 7%;
+    padding-bottom: 5%;
     overflow: hidden;
-    border-right: .10em solid whitesmoke;
     white-space: nowrap;
     margin: 0 auto;
     animation:
