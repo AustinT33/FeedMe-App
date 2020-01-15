@@ -40,10 +40,10 @@ class LoginForm extends Component {
                       {error && <p className="error">{error}</p>}
                   </div>
                 <div className="user_name">
-                    <input required name="user_name" id="LoginForm_user_name" placeholder="Username"/>
+                    <input required name="user_name" id="LoginForm_user_name" placeholder="usertest1"/>
                 </div>
                 <div className="password">
-                    <input required name="password" type="password" id="LoginForm_password" placeholder="Password"/>
+                    <input required name="password" type="password" id="LoginForm_password" placeholder="passtest1"/>
                 </div>
                 <button className="login-btn" type="submit">Login</button>
                 <Link to="/feedme-guest" className="guest-button" >Continue as guest</Link>
