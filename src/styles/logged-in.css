@@ -25,12 +25,10 @@
 
 .intro {
     text-align: center;
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     font-size: 30px;
     margin-top: 10%;
-    margin-bottom: 8%;
-    
 }
 
 .intro-text {
@@ -40,29 +38,11 @@
 }
 
 .result {
-    margin-top: -2%;
+    margin-top: -3%;
     color: whitesmoke;
     font-size: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    animation: 
-        typing 2s steps(35, end),
-        blink-caret .75s step-end infinite;
+    width: 100%;
 }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 75% }
-  }
-
-@keyframes blink-caret {
-    from, to { border-right-color: transparent }
-    10% { border-right-color: whitesmoke; }
-  }
-
-
-
 
 .results {
     color: whitesmoke;
@@ -81,7 +61,7 @@
 .options {
     text-align: center;
     margin: 0 auto;
-    margin-top: 3%;
+    margin-top: 10%;
 }
 
 select {
@@ -130,6 +110,12 @@ select {
         padding: 0 10px;
     }
 
+    .options {
+        margin-top: 30%;
+        position: absolute;
+        width: 100%;
+    }
+
     .intro-text {
         font-size: 26px;
         margin-top: 20%;
@@ -138,21 +124,15 @@ select {
 
     .results{
         margin-top: 20%;
-        margin-bottom: 20%;
     }
 
     .result {
-        margin-top: 20%;
-        margin-bottom: 20%;
-        animation: none;
-        overflow: visible;
-        white-space: normal;
-        border-right: none;
+        margin-top: 30%;
+        font-size: 26px;
     }
 
     .intro {
-        width: 80%;
-        position: relative;
+        width: 100%;
     }
 
     .fave-randomize {

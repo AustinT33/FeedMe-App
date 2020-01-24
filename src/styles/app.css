@@ -7,11 +7,6 @@ button:focus {
    outline: 0;
 }
 
-input:focus {
-   outline: 0;
-   background-color: black;
-}
-
 select:focus {
    outline: 0;
 }
@@ -20,5 +15,5 @@ select:focus {
    color: whitesmoke;
    font-size: 30px;
    text-align: center;
-   margin-top: 10%;
+   margin-top: 20%;
 }

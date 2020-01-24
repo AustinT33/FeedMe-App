@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/logged-in.css'
 import Context from '../contexts/context'
 import Navbar from '../components/navbar'
-// import Loading from '../pictures/loading-icon'
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max)
@@ -40,22 +39,8 @@ class LoggedInStartPage extends React.Component {
         if(this.state.display){
             return (
             <div className="results">
-                <h3 className="result">You should eat at {place.title}!</h3>
-                <button onClick={() => this.props.addFavorite(place)} className="faves">
-                    Add to Favorites?
-                </button>
+                <h3 className="result">You should eat at {place.name}!</h3>
             </div>
-            )
-        } else if (this.state.noFavesDisplay){
-            return (
-                <p className="noFaves">Your favorites list is currently empty.</p>
-            )
-        } else if (this.state.displayFave){
-            return (
-                <div className="results">
-                    <h3 className="fave-result">You Should eat at {this.context.favorites[this.state.favePick].title}!</h3>
-                    <p>This result is from your favorites list.</p>
-                </div>
             )
         } else {
            return <h3 className="intro-text">Press the "Find me a restaurant" button to get started!</h3>
@@ -114,10 +99,6 @@ class LoggedInStartPage extends React.Component {
                 </select>
                 <button onClick={this.handleRandomize} className="start-button" type="button">Find Me A Restaurant!</button>
             </div>
-                <div className="extra-option">
-                    <button onClick={this.handleFavoritesRandomize} 
-                    className="fave-randomize" type="button">Randomize By Favorites!</button>    
-                </div>
         </div>
         )
     }

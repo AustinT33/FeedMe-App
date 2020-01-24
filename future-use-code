@@ -1,0 +1,119 @@
+    
+  // handleAddFave = place => {
+  //   const present = this.state.favorites.find(fave => fave.title === place.title)
+  //   if(!present) {
+  //     const request = {
+  //       method: 'POST',
+  //       headers: {
+  //         'content-type': 'application/json',
+  //         'authorization': `bearer ${TokenService.getAuthToken()}`,
+  //       },
+  //       body: JSON.stringify({restaurant: place.id})
+  //     }
+  //     fetch(`${config.API_ENDPOINT}/api/favorites`, request).then((res) => {
+  //       return res.json()
+  //     })
+  //     .then((res) => {
+        
+  //         this.setState({favorites:[...this.state.favorites,place]})
+  //         alert('Added To Favorites.')
+  //     })
+  //   } else {
+  //     alert('Already a favorite');
+  //   }
+  // }
+
+  // handleDeleteFave = id => {
+  //   const request = {
+  //     method: 'DELETE', 
+  //     headers: { 
+  //       'authorization': `bearer ${TokenService.getAuthToken()}`,
+  //     },
+  //   }
+  //   fetch(`${config.API_ENDPOINT}/api/favorites/${id}`, request).then((res) => {
+  //     return res.text()
+  //   })
+  //   .then((res) => {
+  //     this.setState({favorites: this.state.favorites.filter(fave=>fave.id!==id)})
+  //     alert('Removed From Favorites.')
+  //   })
+  // }
+
+//   handleTimer = () => {
+//     if(this.state.isLoading){
+//         console.log('loading?')
+//         setTimeout(() => {
+//             this.setState({isLoading: true})
+//         }, 3000) 
+//     }
+// }
+    
+    
+    // getFavorites = () => {
+    // fetch all favorites from the database
+    // return fetch(`${config.API_ENDPOINT}/api/favorites`, {
+    //   headers: {
+    //     'authorization': `bearer ${TokenService.getAuthToken()}`,
+    //   }
+    // })
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         favorites: res
+    //       });
+    //     },
+    //     (error) => {
+    //       this.setState({
+    //         isLoaded: true, 
+    //         error
+    //       });
+    //     }
+    //     )
+    //   }
+
+
+                {/* <Route path="/favorites" render={(routeProps) => {
+              if(!this.state.loggedIn) {
+                return (<div className="loading-status">You are not logged in.</div>)
+              } else {
+              return <Favorites {...routeProps} removeFavorite={this.handleDeleteFave}/>
+              }}}/> */}
+            {/* <Route path="/signup" component={SignupPage}/> */}
+            {/* <Route path="/forgot-info" component={ForgotInfo}/> not needed for capstone*/}
+
+
+-----logged in start page----
+
+                {/* <button onClick={() => this.props.addFavorite(place)} className="faves">
+                    Add to Favorites?
+                </button> */}
+
+                else if (this.state.noFavesDisplay){
+            return (
+                <p className="noFaves">Your favorites list is currently empty.</p>
+            )
+        } else if (this.state.displayFave){
+            return (
+                <div className="results">
+                    <h3 className="fave-result">You Should eat at {this.context.favorites[this.state.favePick].title}!</h3>
+                    <p>This result is from your favorites list.</p>
+                </div>
+            )
+        } 
+
+
+                        <div className="extra-option">
+                    <button onClick={this.handleFavoritesRandomize} 
+                    className="fave-randomize" type="button">Randomize By Favorites!</button>    
+                </div>
+
+        ----nav----
+        {/* <li><span className="nav-links">Account</span></li> */}
+            {/* <li><Link to='/favorites' className="favorites-link">Favorites</Link></li> */}
+
+                        <Route exact path="/" render={(routeProps) => {
+            return <LoginPage {...routeProps} getFavorites={this.getFavorites}  loggedIn={() => this.setState({loggedIn: true,})}/>
+            }}/>
+
+             this.setState({loggedIn: window.localStorage.getItem(config.TOKEN_KEY)})

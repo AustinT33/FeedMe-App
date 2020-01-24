@@ -18,8 +18,6 @@ class Navbar extends React.Component {
             <img src={NavLogo} className="nav-logo" alt="nav-feedme-logo"/>
             <span>{userName}</span>
             <li><Link onClick={TokenService.clearAuthToken} to='/' className="logout-link">Logout</Link></li>
-            {/* <li><span className="nav-links">Account</span></li> */}
-            <li><Link to='/favorites' className="favorites-link">Favorites</Link></li>
         </ul>
     </nav>
     )

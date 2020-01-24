@@ -1,15 +1,54 @@
 .welcome-guest {
     text-align: center;
     color: whitesmoke;
-    margin-top: 2%;
     font-size: 36px;
+    margin-top: 10px;
+}
+
+
+.directions-link {
+    color:whitesmoke;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.zipcode-input {
+    margin-left: 8px;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 17px;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px;
+    caret-color: whitesmoke;
+}
+
+.zipcode-text {
+    color: whitesmoke;
+    text-align: center;
+    font-size: 20px;
+}
+
+.zipcode-submit {
+    margin-left: 8px;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.place-photo {
+    height: 175px;
+    width: 275px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
 }
 
 .feedme-guest {
     display: block;
-    width: 10%;
     margin: 0 auto;
-    margin-top: 3%;
+    width: 125px;
 }
 
 .intro-guest {
@@ -19,39 +58,19 @@
 }
 
 .results-guest {
-    margin-top: 7%;
-    font-size: 32px;
     color: whitesmoke;
-    margin-bottom: 7%;
+    font-size: 28px;
 }
 
 .results-display {
-    padding-top: 5%;
-    font-size: 32px;
+    font-size: 28px;
     color: whitesmoke;
-    padding-bottom: 5%;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    animation:
-        typing 4s steps(35, end),
-        blink-caret .75s step-end infinite;
 }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 20% }
-  }
-
-@keyframes blink-caret {
-    from, to { border-right-color: transparent }
-    10% { border-right-color: whitesmoke; }
-  }
 
 .options-guest {
     text-align: center;
     margin: 0 auto;
-    margin-top: 3%;
+    margin-top: 20px;
 }
 
 .select-guest {
@@ -63,15 +82,15 @@
 
 .start-button-guest {
     font-weight: bold;
-    width: 20%;
+    width: 19%;
     background-color: black;
     border-top: black;
     border-left: black;
     border-right: black;
     color: whitesmoke;
     font-size: 20px;
-    margin-left: 1%;
     cursor: pointer;
+    margin-left: 15px;
 }
 
 .not-logged-in-link-guest {
@@ -89,41 +108,34 @@
 @media only screen and (max-width: 500px) {
 
     .welcome-guest {
-        margin-top: 5%;
         font-size: 24px;
-        padding: 10px;
+        padding: 0 10px;
+    }
+
+    .place-photo {
+        height: 150px;
+        width: 250px;
     }
 
     .feedme-guest {
-        width: 30%;
-        margin-top: 8%;
+        width: 100px;
+        padding: 5px 0;
     }
 
     .results-display {
-        margin-top: 10%;
         font-size: 24px;
-        margin-bottom: 10%;
-        animation: none;
-        overflow: visible;
-        white-space: normal;
-        border-right: none;
     }
 
     .results-guest {
-        margin-top: 10%;
-        margin-bottom: 10%;
         font-size: 24px;
     }
 
     .intro-guest {
-        margin-bottom: 20%;
-        margin-left: 15%;
-        margin-right: 15%;
-        margin-top: 10%;
+        margin: 10px auto 20px;
     }
 
     .select-guest {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .start-button-guest {
@@ -148,29 +160,53 @@
         margin-top: 5%;
     }
 
+    .zipcode-input {
+        font-size: 28px;
+        width: 100px;
+    }
+
+    .zipcode-text {
+        font-size: 28px;
+    }
+
+    .zipcode-submit {
+        font-size: 29px;
+        border-color: whitesmoke;
+    }
+
+    .place-photo {
+        height: 300px;
+        width: 400px;
+    }
+
+    .directions-link {
+        font-size: 34px;
+    }
+
     .feedme-guest {
         width: 20%;
         margin-top: 5%;
     }
 
     .results-guest {
-        font-size: 30px;
+        font-size: 36px;
+    }
+
+    .results-display {
+        font-size: 36px;
     }
 
     .intro-guest {
-        margin-bottom: 10%;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 10%;
+        margin: 50px 50px;
     }
 
     .start-button-guest {
-        width: 40%;
-        font-size: 26px;
+        width: 50%;
+        font-size: 30px;
     }
 
     .select-guest {
-        font-size: 26px;
+        font-size: 30px;
     }
 
     .not-logged-in-link-guest {
@@ -191,8 +227,27 @@
     }
 
     .feedme-guest {
-        width: 20%;
+        width: 200px;
         margin-top: 5%;
+    }
+
+    .zipcode-text, .zipcode-submit {
+        font-size: 38px;
+    }
+
+    .zipcode-input {
+        width: 125px;
+        font-size: 36px;
+        border-color: whitesmoke;
+    }
+
+    .place-photo {
+        height: 400px;
+        width: 650px;
+    }
+
+    .directions-link {
+        font-size: 36px;
     }
 
     .results-guest {
@@ -204,17 +259,20 @@
     }
 
     .intro-guest {
-        margin-bottom: 15%;
-        margin-top: 15%;
+        margin: 200px, 100px;
+    }
+
+    .options-guest {
+        margin-top: 75px;
     }
 
     .start-button-guest {
-        width: 40%;
-        font-size: 32px;
+        width: 45%;
+        font-size: 36px;
     }
 
     .select-guest {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .not-logged-in-link-guest {
