@@ -27,7 +27,6 @@ class StartPageGuest extends React.Component {
         } else {
             filteredPlaces = this.context.places.filter(place => place.price === e.target.value)      
         }
-        console.log(filteredPlaces.length)
         this.setState({
             filteredPlaces,
             pick: randomNumber(filteredPlaces.length)
