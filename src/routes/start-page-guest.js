@@ -3,10 +3,20 @@ import { Link } from 'react-router-dom';
 import '../styles/guest-start-page.css';
 import Logo from '../pictures/feedme-logo.png'
 import AppContext from '../contexts/context';
+import googleAnalytics from '@analytics/google-analytics'
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max)
 }
+
+const analytics = Analytics({
+    app: 'Feedme',
+    plugins: [
+        googleAnalytics({
+            trackingId: '123-xyz'
+          })
+    ]
+})
 
 class StartPageGuest extends React.Component {
     static contextType = AppContext;
@@ -53,6 +63,11 @@ class StartPageGuest extends React.Component {
 
     handleRandomize = (e) => {
       e.preventDefault();
+      analytics.track('randomize-button-clicked', {
+          category: 'Button Click',
+          label: 'Randomize Button',
+          value: '1'
+      })
       this.setState({
         display: true,
         pick: Math.floor(Math.random() * this.state.filteredPlaces.length)
@@ -61,6 +76,11 @@ class StartPageGuest extends React.Component {
 
     zipCodeChange = e => {
         e.preventDefault();
+        analytics.track('randomize-button-clicked', {
+            category: 'Zip Code Entry',
+            label: 'Zip Code',
+            value: '1'
+        })
         this.context.getRestaurants(e.target.zipcode.value);
     }
 
